@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #06561c;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    touch-action: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controller {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+}
+
+/* =========================
+   ÜST BAR
+========================= */
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 4px 20px;
+    border-bottom: 1px solid #2b2b2b;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #346d08;
+}
+
+.status {
+    font-size: 13px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+/* Bağlandı durumu için */
+.status.connected {
+    color: #00ff88;
+}
+
+/* =========================
+   ODA BAĞLANTI
+========================= */
+
+.connection-panel {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+#roomCodeInput {
+    flex: 1;
+    min-width: 0;
+    height: 48px;
+    padding: 0 15px;
+
+    border: 1px solid #444;
+    border-radius: 10px;
+
+    background: #1b1b1b;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+
+    outline: none;
+}
+
+#roomCodeInput:focus {
+    border-color: #08c8ef;
+}
+
+#joinButton {
+    width: 105px;
+    height: 48px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: #08c8ef;
+    color: #050505;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+/* =========================
+   GAMEPAD
+========================= */
+
+.gamepad {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 10px 20px;
+}
+
+/* =========================
+   D-PAD
+========================= */
+
+.dpad {
+    position: relative;
+
+    width: 230px;
+    height: 230px;
+
+    margin-top: 20px;
+}
+
+.control-button {
+    position: absolute;
+
+    border: 1px solid #444;
+    border-radius: 16px;
+
+    background: #202020;
+    color: #fff;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 0 #0b0b0b,
+        inset 0 1px 0 #444;
+
+    cursor: pointer;
+
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.control-button:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 1px 0 #0b0b0b,
+        inset 0 1px 0 #444;
+
+    background: #08c8ef;
+    color: #050505;
+}
+
+/* Yukarı */
+
+.dpad .up {
+    width: 72px;
+    height: 72px;
+
+    left: 79px;
+    top: 0;
+}
+
+/* Sol */
+
+.dpad .left {
+    width: 72px;
+    height: 72px;
+
+    left: 0;
+    top: 79px;
+}
+
+/* Aşağı */
+
+.dpad .down {
+    width: 72px;
+    height: 72px;
+
+    left: 79px;
+    top: 158px;
+}
+
+/* Sağ */
+
+.dpad .right {
+    width: 72px;
+    height: 72px;
+
+    right: 0;
+    top: 79px;
+}
+
+/* =========================
+   A / B BUTONLARI
+========================= */
+
+.action-buttons {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    padding-bottom: 20px;
+}
+
+.action-buttons .control-button {
+    position: static;
+
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+/* B */
+
+.button-b {
+    background: #262626;
+}
+
+/* A */
+
+.button-a {
+    background: #08c8ef;
+    color: #050505;
+}
+
+/* =========================
+   KÜÇÜK TELEFONLAR
+========================= */
+
+@media (max-height: 650px) {
+
+    .controller {
+        padding: 10px;
+    }
+
+    .top-bar {
+        padding-bottom: 10px;
+    }
+
+    .connection-panel {
+        margin-top: 10px;
+    }
+
+    .gamepad {
+        padding-top: 15px;
+    }
+
+    .dpad {
+        width: 190px;
+        height: 190px;
+    }
+
+    .dpad .up,
+    .dpad .left,
+    .dpad .down,
+    .dpad .right {
+        width: 60px;
+        height: 60px;
+    }
+
+    .dpad .up {
+        left: 65px;
+    }
+
+    .dpad .left {
+        top: 65px;
+    }
+
+    .dpad .down {
+        left: 65px;
+        top: 130px;
+    }
+
+    .dpad .right {
+        top: 65px;
+    }
+
+    .action-buttons .control-button {
+        width: 68px;
+        height: 68px;
+    }
+}

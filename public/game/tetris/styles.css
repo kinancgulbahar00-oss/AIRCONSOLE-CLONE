@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 200px;
+  overflow: hidden;
+}
+
+#tetrisCanvas, canvas {
+  width: 200px !important;
+  height: 400px !important;
+  display: block;
+}

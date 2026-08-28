@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirConsole Clone</title>
+    <link rel="stylesheet" href="/css/host.css">
+    <!-- QR Kod Kütüphanesi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="logo"><span>AIRCONSOLE</span> CLONE</div>
+        <div class="connection">
+            <span class="status-dot"></span>
+            <span id="connectionStatus">ONLINE</span>
+        </div>
+    </header>
+
+    <main class="dashboard">
+
+        <!-- Sol Panel: Oda ve QR Bilgileri -->
+        <aside class="room-panel">
+            <h2>ODA BİLGİLERİ</h2>
+
+            <div class="room-item">
+                <span>ODA KODU</span>
+                <strong id="roomCode">----</strong>
+            </div>
+
+            <!-- QR KOD ALANI -->
+            <div class="qr-container" style="display: flex; justify-content: center; margin: 15px 0;">
+                <div id="qrcode" style="padding: 10px; background: #fff; border-radius: 8px;"></div>
+            </div>
+
+            <div class="room-item">
+                <span>OYUNCULAR</span>
+                <strong id="playerCount">0</strong>
+            </div>
+
+            <div class="controller-info">
+                📱<br>
+                <span>Kameran ile QR kodu taratarak direkt oyuna katıl!</span>
+            </div>
+        </aside>
+
+        <!-- Orta Panel -->
+        <section class="game-panel">
+            <div class="game-title">
+                <span>OYUN</span>
+                <h1>TETRIS</h1>
+            </div>
+
+            <div class="game-screen" style="width: 200px; height: 400px;">
+                <iframe id="gameFrame" src="/game/tetris/index.html" frameborder="0" style="width: 200px; height: 400px;"></iframe>
+            </div>
+        </section>
+
+        <!-- Sağ Panel -->
+        <aside class="side-panel">
+            <h2>İSTATİSTİKLER</h2>
+            <div class="stats-card">
+                <div class="stat"><span>SKOR</span><strong id="score">0</strong></div>
+                <div class="stat"><span>SATIR</span><strong id="lines">0</strong></div>
+                <div class="stat"><span>SEVİYE</span><strong id="level">1</strong></div>
+            </div>
+            <button id="startButton">BAŞLAT</button>
+        </aside>
+
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/host.js"></script>
+</body>
+</html>
